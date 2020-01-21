@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="Resume" content="This is a resume for the resume challenge on the Semantic HTML module">
+    <title>Sally Student resume</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div id="application-root"></div>
+
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+    <script
+      src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+
+    <script type="text/babel">
+
+      function App(props){
+      return(
+      <div className={props.className}>
+        <Header studentName={props.studentName}/>
+        <Contact studentName={props.studentName}/>
+        <Education />
+        <WorkHistory />
+      </div>
+      )
+      }
+
+      function Header(props){
+      return(
+      <header>{props.studentName} Resume
+        <div> 
+          <img src="https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Sally Student Picture" height="500" width="400"/>
+        </div>
+      </header>
+      )
+      }
+
+      function Contact(props){
+      return (
+      <section>
+        <h1>{props.studentName}</h1>
+          <p><a                     href="mailto:sally.student@gmail.com">Sally.Student@gmail.com</a>
+          </p>
+          <p>
+          (602)602-1234
+          </p>
+          <address>
+          1234 W. Street Phoenix, Arizona 85051 
+          </address>
+      </section>
+      )
+      }
+
+      function Education(){
+      return (
+      <section>
+        <h2><br/>Education:</h2>
+          <ul>
+            <li>University of Advancing Technology: 2017-Present </li>
+            <li>Arizon State University: 2016-2017</li>
+          </ul>
+      </section>
+      )
+      }
+
+      function WorkHistory(){
+      return (
+      <section>
+        <h2>Work History:</h2>
+          <ul>
+            <li>Amazon: Tech Lead(2017-2019) - lorem ipsum</li>
+            <li>Google: Project Manager(2015-2017) - lorem ipsum</li>
+          </ul>
+      </section>
+      )
+      }
+          
+      ReactDOM.render(
+      <App className='sally-resume' studentName='Sally Student' />,
+      document.querySelector('#application-root')
+      );
+    </script>
+  </body>
+</html>
